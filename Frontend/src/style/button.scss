@@ -1,0 +1,46 @@
+@use "./theme" as theme;
+
+.button{
+
+    border: none;
+    outline: none;
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+
+    &.primary-button{
+        background-color: theme.$accent-strong;
+        color: white;
+    }
+
+    &:active{
+        transform: scale(0.9);
+    }
+
+    &:disabled{
+        cursor: not-allowed;
+        opacity: 0.75;
+        transform: none;
+    }
+}
+
+.button-spinner{
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    vertical-align: -0.12rem;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
