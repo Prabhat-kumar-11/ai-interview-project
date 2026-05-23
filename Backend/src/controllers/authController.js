@@ -87,7 +87,11 @@ async function registerUserController(req, res) {
         { expiresIn: "1d" }
     )
 
-    res.cookie("token", token)
+    res.cookie("token", token,{
+    httpOnly: true,
+    secure: true,
+    sameSite: "None"
+})
 
 
     res.status(201).json({
@@ -107,7 +111,8 @@ async function registerUserController(req, res) {
  * @description login a user, expects email and password in the request body
  * @access Public
  */
-async function loginUserController(req, res) {
+async function 
+loginUserController(req, res) {
 
     const email = req.body.email?.trim().toLowerCase()
     const { password } = req.body
